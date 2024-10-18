@@ -1,0 +1,38 @@
+[package]
+name = "resonanz-egui-template2"
+version = "0.1.0"
+authors = ["Rob Ward <rob@resona.nz>"]
+license = "MIT OR Apache-2.0"
+edition = "2021"
+rust-version = "1.81"
+publish = false
+
+[lints]
+#workspace = true
+
+[dependencies]
+egui = "0.29.1"
+eframe = "0.29.1"
+egui_plot = "0.29.0"
+
+# For image support:
+egui_extras = { version = "0.29.1", features = ["default", "all_loaders"] }
+
+env_logger = { version = "0.11", default-features = false, features = [
+    "auto-color",
+    "humantime",
+] }
+
+[profile.release]
+strip = true
+opt-level = "s"
+lto = true
+codegen-units = 1
+
+# native:
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+
+# web:
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen-futures = "0.4"
+web-sys = "0.3.70"           # to access the DOM (to hide the loading text)
