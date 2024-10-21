@@ -1,5 +1,5 @@
 [package]
-name = "resonanz-egui-template2"
+name = "resonanz_egui_template2"
 version = "0.1.0"
 authors = ["Rob Ward <rob@resona.nz>"]
 license = "MIT OR Apache-2.0"
@@ -17,6 +17,9 @@ egui_plot = "0.29.0"
 
 # For image support:
 egui_extras = { version = "0.29.1", features = ["default", "all_loaders"] }
+
+# You only need serde if you want app persistence:
+serde = { version = "1", features = ["derive"] }
 
 env_logger = { version = "0.11", default-features = false, features = [
     "auto-color",

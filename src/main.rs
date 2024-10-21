@@ -8,8 +8,8 @@ fn main() -> eframe::Result {
     let native_options = eframe::NativeOptions {
         viewport: egui::ViewportBuilder::default()
             //.with_drag_and_drop(true)
-            .with_inner_size([600.0, 500.0])
-            //.with_min_inner_size([300.0, 250.0])
+            .with_inner_size([1200.0, 800.0])
+            .with_min_inner_size([1200.0, 800.0])
             //.with_resizable(false),
             .with_icon(
                 // NOTE: Adding an icon is optional
@@ -22,12 +22,12 @@ fn main() -> eframe::Result {
     };
 
     eframe::run_native(
-        "egui example: custom font",
+        "egui demo app",
         native_options,
         Box::new(|cc| {
             // This gives us image support:
             egui_extras::install_image_loaders(&cc.egui_ctx);
-            Ok(Box::new(resonanz - egui - template2::TemplateApp::new(cc)))
+            Ok(Box::new(resonanz_egui_template2::TemplateApp::new(cc)))
         }),
     )
 }
@@ -45,7 +45,7 @@ fn main() {
             .start(
                 "the_canvas_id",
                 web_options,
-                Box::new(|cc| Ok(Box::new(eframe_template::TemplateApp::new(cc)))),
+                Box::new(|cc| Ok(Box::new(resonanz_egui_template2::TemplateApp::new(cc)))),
             )
             .await;
 
