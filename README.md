@@ -6,3 +6,5 @@
 
 ## Notes
 - Fonts are from fonts.google.com.
+
+![Screenshot from 2024-10-21 16-17-17](https://github.com/user-attachments/assets/d7ce3ca2-3f26-4a1a-bb67-6dd7b762d092)
