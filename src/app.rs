@@ -1,6 +1,6 @@
 use std::time::Instant;
 
-use egui::{Color32, Frame, Margin, RichText, Stroke};
+use egui::{Color32, Frame, Margin, RichText};
 use egui::{FontFamily, FontId};
 
 #[derive(serde::Deserialize, serde::Serialize)]
@@ -57,39 +57,25 @@ impl eframe::App for TemplateApp {
 
         /* =============================== LEFT SIDEPANEL ======================================== */
 
+        // let style = ctx.style().visuals.panel_fill; // Get the current style
+
         egui::SidePanel::left("left_panel")
             .exact_width(180.)
-            // .frame(Frame {
-            //     inner_margin: Margin {
-            //         left: 4.,
-            //         right: 0.,
-            //         top: 0.,
-            //         bottom: 0.,
-            //     },
-            //     outer_margin: Margin {
-            //         left: 0.,
-            //         right: 0.,
-            //         top: 0.,
-            //         bottom: 0.,
-            //     },
-            //     rounding: egui::Rounding {
-            //         nw: 0.,
-            //         ne: 0.,
-            //         sw: 0.,
-            //         se: 0.,
-            //     },
-            //     shadow: egui::Shadow {
-            //         offset: egui::Vec2 { x: 0., y: 0. },
-            //         blur: 0.,
-            //         spread: 0.,
-            //         color: Color32::WHITE,
-            //     },
-            //     fill: Color32::BLACK,
-            //     stroke: Stroke {
-            //         width: 0.,
-            //         color: Color32::WHITE,
-            //     },
-            // })
+            .frame(Frame {
+                inner_margin: Margin {
+                    left: 1.,
+                    right: 1.,
+                    top: 0.,
+                    bottom: 1.,
+                },
+                fill: ctx.style().visuals.panel_fill,
+                .. Default::default()
+                // outer_margin: Default::default(),
+                // rounding: Default::default(),
+                // shadow: Default::default(),
+                // fill: Default::default(),
+                // stroke: Default::default(),
+            })
             .resizable(false) // Stops highlight on hover
             .show(ctx, |ui| {
                 Frame::none()
@@ -125,6 +111,28 @@ impl eframe::App for TemplateApp {
 
                         let slider_width = slider_response.rect.width();
                         println!("slider_width = {slider_width}");
+                    });
+                Frame::none()
+                    .inner_margin(Margin {
+                        left: 0.,
+                        right: 0.,
+                        top: 0.,
+                        bottom: 0.,
+                    })
+                    .show(ui, |ui| {
+                        ui.with_layout(egui::Layout::left_to_right(egui::Align::BOTTOM), |ui| {
+                            let response = ui.add(
+                                egui::Image::new(egui::include_image!(
+                                    "../assets/pics/WR512x512px.png"
+                                ))
+                                // egui::Layout::centered_and_justified doesn't allow
+                                // the image to align with the bottom (it's broken).
+                                // Need to create image with large black border to force centering.
+                                .max_width(140.)
+                                .max_height(140.),
+                            );
+                            response.on_hover_text("This is a WHOLE lots of response hover text!!! \n and some more...");
+                        });
                     });
             });
 
