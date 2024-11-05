@@ -136,7 +136,7 @@ impl eframe::App for TemplateApp {
                     });
             });
 
-        /* ============================== CENTRAL PANEL ========================================== */
+        /* ============================== TOP PANEL ========================================== */
 
         //let size = egui::Vec2 { x: 180., y: 50. };
         let top_down_centered_layout = egui::Layout::top_down(egui::Align::Center);
