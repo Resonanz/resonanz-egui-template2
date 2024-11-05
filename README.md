@@ -11,7 +11,7 @@
 The 7-segment font counters are updating flat out with every screen redraw (probably 60 Hz).
 
 * 600 spinners: Window minimized, CPU = 0.3-0.6%
-* 1 spinners: Window maximized, CPU = 17-18%, this high CPU load will be due to the 7-segments updating 
+* 1 spinner: Window maximized, CPU = 17-18%, this high CPU load will be due to the 7-segments updating 
 * 600 spinners: Window maximized, CPU = 17-19%, 7-segments updating 
 
 ## Notes
