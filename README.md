@@ -2,7 +2,7 @@
 
 - Clone ```git clone https://github.com/Resonanz/resonanz-egui-template2.git```
 - cd into folder ```cd resonanz-egui-template2```
-- Run ```cargo run```
+- Run ```cargo run``` or ```cargo run --release```  // useful to compare debug vs release
 
 ## Notes
 - Fonts are from fonts.google.com.
